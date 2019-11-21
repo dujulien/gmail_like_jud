@@ -1,0 +1,29 @@
+<h1 class="text-center mb-4">Gmail</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="btn-center">
+      <%= button_to "Receive an email", emails_path, method: 'post', class: "btn btn-primary", remote: true %>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">List of emails</th>
+          <th scope="col">Content</th>
+        </tr>
+      </thead>
+      <tbody id="email-list">
+        <% @emails.sort_by(&:created_at).reverse.each do |email| %>
+          <tr id="email_<%= email.id %>">
+            <th style='width:250px;' scope="row"><%= link_to email.object, email_path(email.id), method: 'get', remote: true %></th>
+            <td class="d-none"><%= render("show", email: email) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div> 
+

@@ -9,35 +9,50 @@ before_action :authenticate_user!
     @category = Category.find(category_params)
     @task.category = @category
     if @task.save
-      redirect_to root_path
       flash[:notice] = "Task created"
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.js{}
+      end 
     else
-      redirect_to root_path
       flash[:notice] = "Please try again"
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.js {}
+      end
     end
   end
 
   def edit
     @task = Task.find(params[:id])
     @categories = Category.all
-
   end
 
   def update
     @task = Task.find(params[:id])
+    if params[:checked] == '1'
+      @task.status = true
+    else
+      @task.status = false
+    end
     @task.update(task_params)
-    redirect_to tasks_path
     flash[:notice] = "Task edited"
+    respond_to do |format|
+      format.html {redirect_to tasks_path}
+      format.js {}
+    end
   end
 
   def index
-    @tasks = Task.all
+    @tasks = Task.order('created_at DESC').all
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.js {}
+    end
   end
 
 

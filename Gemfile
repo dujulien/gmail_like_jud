@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-
+gem 'table_print'
+gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
@@ -40,7 +41,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'faker'
 #Front end gem
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.11.2'
+
 gem 'bootstrap', '~> 4.3.1'
 
 group :development, :test do

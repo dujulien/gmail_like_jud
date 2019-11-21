@@ -1,0 +1,8 @@
+<li>
+	<%= task.title  %>
+	<% unless task.deadline.nil? %>
+	  , to read: <%= task.deadline.strftime('%D')  %>
+	<% end %>
+	<%= link_to icon('fas', 'times'), task_path(task.id), method: :delete, class: "red", remote: true %>
+    <%= check_box_tag :checked, 1, task.status, data: { remote: true, url: task_path(task.id), params: { id: task.id}.to_param, method: "put" }%>
+</li>

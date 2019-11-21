@@ -5,13 +5,16 @@
   <% @categories.each do  |category|%>
   <li><%= category.title  %></li>
   <div class="card">
-    <ul>
-      <% category.tasks.each do |task|  %>
-      <li>
+    <ul id ="<%= category.title  %>">
+      <% category.tasks.sort_by(&:created_at).each do |task|  %>
+      <li id="<%= task.id %>">
         <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>
         <% end %>
+        <%= link_to icon('fas', 'times'), task_path(task.id), method: :delete, class: "red", remote: true %>
+        <%= check_box_tag :checked, 1, task.status, data: { remote: true, url: task_path(task.id), params: { id: task.id}.to_param, method: "put" }%>
+        <span id="<%= task.id %>_status"><%= task.status %></span>
       </li>
       <% end %>
     </ul>

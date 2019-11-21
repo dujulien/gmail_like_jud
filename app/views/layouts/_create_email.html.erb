@@ -1,0 +1,4 @@
+<tr id="email_<%= email.id %>">
+	<th style='width:250px;' scope="row"><%= link_to email.object, email_path(email.id), method: 'get', remote: true %></th>
+	<td class="d-none"><%= render("show", email: email) %></td>
+</tr>

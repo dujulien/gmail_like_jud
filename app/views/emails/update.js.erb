@@ -1,0 +1,10 @@
+if (<%= @email.read %> == true) {
+	document.getElementById("email_<%= @email.id %>").querySelectorAll("input.btn")[1].className = "btn btn-success"
+	document.getElementById("email_<%= @email.id %>").querySelectorAll("input.btn")[1].value = "Mark as unread"
+	document.getElementById("email_<%= @email.id %>").querySelectorAll("th")[0].style.fontWeight = "normal"
+} else {
+	document.getElementById("email_<%= @email.id %>").querySelectorAll("input.btn")[1].className = "btn btn-secondary"
+	document.getElementById("email_<%= @email.id %>").querySelectorAll("input.btn")[1].value = "Mark as read"
+	document.getElementById("email_<%= @email.id %>").querySelectorAll("th")[0].style.fontWeight = "bold"
+}
+	
