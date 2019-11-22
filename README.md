@@ -1,12 +1,16 @@
 # README
 
-Comme d'hab : 
+As usual : 
 
 $bundle install
+
 $rails db:create db:migrate db:seed
+
 $rails s
 
 Enjoy :)
+
+Also on heroku :  https://gmail-like-jud.herokuapp.com/ 
 
 
 
