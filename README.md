@@ -1,5 +1,16 @@
 # README
 
+Comme d'hab : 
+
+$bundle install
+$rails db:create db:migrate db:seed
+$rails s
+
+Enjoy :)
+
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

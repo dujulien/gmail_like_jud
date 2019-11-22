@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<h4 style="text-align:right;"> <%= @email.object %> </h4>
+			<p> <%= @email.body %> </p>
+			<div class="row">
+				<%= button_to "Delete", email_path(@email.id), method: 'delete', class: "btn btn-danger", remote: true %>
+				<% if @email.read == true %>
+					<%= button_to "Mark as unread", email_path(@email.id), method: 'put', class: "btn btn-success", remote: true, style: 'margin-left:20pt;'  %>
+				<% else %>
+					<%= button_to "Mark as read", email_path(@email.id), method: 'put', class: "btn btn-secondary", remote: true, style: 'margin-left:20pt;'  %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
